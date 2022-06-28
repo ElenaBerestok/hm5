@@ -8,7 +8,7 @@ const autorize = () => {
     let isAuthSuccess = false;
     let i = 3;
 
-    do {
+    nextTry: do {
         userLogin = prompt('Логин: ');
         if (!userLogin) {
             alert ('Введите логин');
@@ -23,20 +23,30 @@ const autorize = () => {
 
         if ((userPassword !== PASSWORD) || (userLogin !== LOGIN)) {
             while (i) {
-            alert(`Данные неверны. Осталось ${i} попыток`);
+            alert(`Данные неверны. Осталось ${i-1} попыток`);
             i--;
-            break;
+            console.log ('i', i)
+            break ;
             } 
+        }
+
+        if (i == 0) {
+            break nextTry;
         }
 
         if ((userPassword === PASSWORD) && (userLogin === LOGIN)) {
             isAuthSuccess = true;
+            console.log ('Password true', isAuthSuccess)
         }
 
-    } while (!isAuthSuccess );
+    } while (!isAuthSuccess)
+    
 
-
-    alert ('welcome');
+    if (i == 0){
+        alert ('Try later');
+    } else {
+        alert ('Welcome');
+    }
 
 };
 
@@ -45,14 +55,14 @@ autorize ()
 
 // Пункт 2
 
-let userNumber = Number(prompt ('Укажите первое число "от" из промежутка чисел'));
+// let userNumber = Number(prompt ('Укажите первое число "от" из промежутка чисел'));
 
-let userNumber2 = Number(prompt ('Укажите второе число "до" из промежутка чисел'));
+// let userNumber2 = Number(prompt ('Укажите второе число "до" из промежутка чисел'));
 
 
-next: for (let i = userNumber; i < userNumber2; i++) {
-    for (let j = 2; j < i; j++){
-        if (i % j == 0) continue next;
-        console.log ( 'i', i )
-    }
-}
+// next: for (let i = userNumber; i < userNumber2; i++) {
+//     for (let j = 2; j < i; j++){
+//         if (i % j == 0) continue next;
+//         console.log ( 'i', i )
+//     }
+// }
