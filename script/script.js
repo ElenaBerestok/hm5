@@ -55,14 +55,14 @@ autorize ()
 
 // Пункт 2
 
-// let userNumber = Number(prompt ('Укажите первое число "от" из промежутка чисел'));
+let userNumber = Number(prompt ('Укажите первое число "от" из промежутка чисел'));
 
-// let userNumber2 = Number(prompt ('Укажите второе число "до" из промежутка чисел'));
+let userNumber2 = Number(prompt ('Укажите второе число "до" из промежутка чисел'));
 
 
-// next: for (let i = userNumber; i < userNumber2; i++) {
-//     for (let j = 2; j < i; j++){
-//         if (i % j == 0) continue next;
-//         console.log ( 'i', i )
-//     }
-// }
+next: for (let i = userNumber; i <= userNumber2; i++) {
+    for (let j = 2; j < i; j++){
+        if (i % j == 0) continue next;
+    }
+    console.log ( 'i', i )
+}
